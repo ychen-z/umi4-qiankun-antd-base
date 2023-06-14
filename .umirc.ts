@@ -15,6 +15,7 @@ export default defineConfig({
   // layout: {
   //   // title: '@umijs/max',
   // },
+  // umi 内置了postcss，所以只需要在这里进行配置和引用
   extraPostCSSPlugins: [
     require('tailwindcss')({ config: './tailwind.config.js' }),
     require('autoprefixer'),

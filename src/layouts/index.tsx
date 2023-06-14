@@ -1,6 +1,7 @@
-import { Outlet, useModel } from 'umi';
+import { Outlet, useLocation, useModel } from 'umi';
 
 export default function LayoutContainer(props: any) {
+  const location = useLocation();
   const { initialState } = useModel('@@initialState');
   const { userInfo } = initialState || {};
 
@@ -22,10 +23,21 @@ export default function LayoutContainer(props: any) {
     const errUrl = `${host}/index.html`; // 登录无权限页面
     window.location.href = `/api/auth/login/openId/logout?returnUrl=${returnUrl}&errUrl=${errUrl}`;
   };
-
+  if (location.pathname === '/login') {
+    return (
+      <div id="main">
+        <Outlet />
+      </div>
+    );
+  }
   return (
     <div id="app-page">
-      <div id="header">TOUBU21</div>
+      <div
+        id="header"
+        className="h-20 leading-[80px]  border-b border-solid border-b-gray-light shadow-sm"
+      >
+        TOUBU21
+      </div>
       <main id="main">
         <Outlet />
       </main>
