@@ -5,11 +5,12 @@
 ## 关于 tailwindcss 配置
 
 Umi 的稳定版本是 3.5.20 ，其（@umijs/bundler-webpack）使用的 PostCSS 版本为 7.0.32 ，而 Tailwind 依赖 PostCSS 的版本为 8.x.x 。因此，我们需要安装兼容 PostCSS 7 的 Tailwind 版本。
-
+```
 yarn add \
  tailwindcss@npm:@tailwindcss/postcss7-compat \
  @tailwindcss/postcss7-compat \
  autoprefixer@^9
+```
 
 修改 Umi 配置完成相关依赖的安装后，我们需要修改 Umi 配置文件（.umirc 或 config/config.ts）的 extraPostCSSPlugins 选项。
 
