@@ -92,7 +92,7 @@ const errorHandler = (error: { response: Response }): Response => {
   return Promise.reject(response.data);
 };
 
-const prefix = process.env.NODE_ENV === 'development' ? '/test' : '';
+const prefix = process.env.NODE_ENV === 'development' ? '' : '';
 
 const DEFAULT_OPTIONS = {
   headers: {
@@ -104,18 +104,15 @@ const request = axios.create({
   // errorHandler, // 默认错误处理
   timeout: 300000,
   // credentials: 'include',
-  // getResponse: true,
-  // prefix,
-  // suffix: '.do',
 });
 
 // request拦截器, 改变url 或 options.
 request.interceptors.request.use((config) => {
   const { url } = config;
   let nextUrl = url?.includes('http') ? url : `${prefix}${url}`;
-  // if (!nextUrl?.endsWith('.do')) {
-  //   nextUrl = `${nextUrl}.do`;
-  // }
+
+  console.log('request', nextUrl);
+
   return {
     ...config,
     url: nextUrl,

@@ -1,18 +1,16 @@
 import Guide from '@/components/Guide';
 import { trim } from '@/utils/format';
-import { PageContainer } from '@ant-design/pro-components';
 import { useModel } from '@umijs/max';
-import styles from './index.less';
 
 const HomePage: React.FC = () => {
   const { name } = useModel('global');
   return (
-    <PageContainer ghost>
-      <div className={styles.container}>
-        <Guide name={trim(name)} />
-        <span className="flex pr-2 font-bold text-purple">fefe</span>
-      </div>
-    </PageContainer>
+    <div>
+      <Guide name={trim(name)} />
+      <span className="flex pr-2 font-bold text-purple h-[100px] leading-[100px]">
+        fefe
+      </span>
+    </div>
   );
 };
 

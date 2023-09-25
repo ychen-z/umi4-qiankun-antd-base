@@ -13,10 +13,8 @@ module.exports = {
       lg: '976px',
       xl: '1440px',
     },
-    boxShadow: {
-      base: '0 2px 4px 0 #eee',
-    },
     colors: {
+      primary: '#CB211D',
       blue: '#1fb6ff',
       purple: '#7e5bef',
       pink: '#ff49db',

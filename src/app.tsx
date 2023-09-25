@@ -11,7 +11,6 @@ export async function getInitialState() {
   console.log('userInfo', userInfo);
   return {
     userInfo,
-    name: '@umijs/max',
   };
 }
 
