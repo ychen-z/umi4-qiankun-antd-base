@@ -2,6 +2,11 @@
 
 `@umijs/max` 模板项目，更多功能参考 [Umi Max 简介](https://umijs.org/docs/max/introduce)
 
+## umi 升级到 umi4 后
+
+1、tailwind 的配置已更改为最新配置
+2、可以使用最新的 umi4 api
+
 ## 关于 tailwindcss 配置
 
 Umi 的稳定版本是 3.5.20 ，其（@umijs/bundler-webpack）使用的 PostCSS 版本为 7.0.32 ，而 Tailwind 依赖 PostCSS 的版本为 8.x.x 。因此，我们需要安装兼容 PostCSS 7 的 Tailwind 版本。
