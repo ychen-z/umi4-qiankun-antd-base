@@ -1,7 +1,38 @@
 import { defineConfig } from '@umijs/max';
 
+export const routes = [
+  {
+    path: '/',
+    component: '@/layouts/index.tsx',
+    routes: [
+      { path: '', component: '@/pages/index' },
+      {
+        path: '/micro/*',
+        microApp: 'ehr',
+      },
+      {
+        path: '/app3/*',
+        microApp: 'app3',
+      },
+    ],
+  },
+  {
+    path: '/home',
+    name: '首页',
+    component: './home',
+  },
+  {
+    path: '/login',
+    component: './login',
+  },
+  {
+    path: '/access',
+    component: './Access',
+  },
+];
+
 export default defineConfig({
-  // antd: {},
+  apiRoute: {},
   hash: true,
   access: {},
   model: {},
@@ -12,9 +43,6 @@ export default defineConfig({
   initialState: {},
   title: '网易猎头系统',
   request: {},
-  // layout: {
-  //   // title: '@umijs/max',
-  // },
   // umi 内置了postcss，所以只需要在这里进行配置和引用
   extraPostCSSPlugins: [
     require('tailwindcss')({ config: './tailwind.config.js' }),
@@ -33,26 +61,9 @@ export default defineConfig({
       changeOrigin: true,
     },
   },
-  // routes: [
-  //   {
-  //     path: '/',
-  //     redirect: '/home',
-  //   },
-  //   {
-  //     name: '首页',
-  //     path: '/home',
-  //     component: './Home',
-  //   },
-  //   {
-  //     name: '权限演示',
-  //     path: '/access',
-  //     component: './Access',
-  //   },
-  //   {
-  //     name: ' CRUD 示例',
-  //     path: '/table',
-  //     component: './Table',
-  //   },
-  // ],
+  qiankun: {
+    master: {},
+  },
+  routes: routes,
   npmClient: 'yarn',
 });

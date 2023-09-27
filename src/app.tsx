@@ -2,7 +2,7 @@ import api from '@/api/home';
 import { LANGUAGE_LOCALE_FILE } from '@/constants';
 import { App, ConfigProvider } from 'antd';
 import React from 'react';
-import './globals.css';
+import './globals.less';
 
 type LanguageType = 'zh' | 'en' | 'fr';
 
@@ -14,6 +14,29 @@ export async function getInitialState() {
   };
 }
 
+export const qiankun = {
+  apps: [
+    {
+      name: 'ehr',
+      entry: '//localhost:8001',
+      props: {
+        accountOnClick: (event) => console.log(event),
+        accountName: 'Alex',
+        accountAge: 21,
+      },
+    },
+    {
+      name: 'app3',
+      entry: '//localhost:8002',
+      props: {
+        accountOnClick: (event) => console.log(event),
+        accountName: 'Alex',
+        accountAge: 21,
+      },
+    },
+  ],
+};
+
 function AppWrap({ children }: any) {
   const currentLanguage = localStorage.getItem('language') || 'zh';
   const fileName =
@@ -24,7 +47,7 @@ function AppWrap({ children }: any) {
       locale={localeFile}
       theme={{
         token: {
-          colorPrimary: '#1890ff',
+          colorPrimary: '#CB211D',
           colorError: '#f53f3f',
           colorSuccess: '#1ea14c',
           colorWarning: '#ef6b0b',

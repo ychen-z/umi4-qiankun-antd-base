@@ -1,6 +1,7 @@
 {
+  "name": "umi5-qiankun-antd-base",
   "private": true,
-  "author": "张章 <hzzhangzhang1@corp.netease.com>",
+  "author": "itiswell@163.com",
   "scripts": {
     "build": "max build",
     "dev": "max dev",
